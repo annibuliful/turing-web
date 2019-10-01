@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+    <div class="col sm-12">
+      <div class="form-group">
+        <div>{{ uploadPercent | async }}</div>
+        <label for="paperInputs2">รูปภาพ</label>
+        <input
+          class="input-block"
+          type="file"
+          (change)="uploadFile($event)"
+          accept="image/*"
+        />
+      </div>
+    </div>
+    <div class="col sm-4">
+      <div class="form-group">
+        <label for="paperInputs2">คะแนน</label>
+        <input class="input-block" type="number" [(ngModel)]="score" />
+      </div>
+    </div>
+    <div class="col sm-8">
+      <div class="form-group">
+        <label for="paperInputs3">ชื่อ</label>
+        <input class="input-block" type="text" [(ngModel)]="name" />
+      </div>
+    </div>
+    <button style="margin: auto" (click)="submit()">submit</button>
+  </div>
+</div>
