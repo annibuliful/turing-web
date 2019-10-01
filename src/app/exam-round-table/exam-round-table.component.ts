@@ -14,7 +14,7 @@ export class ExamRoundTableComponent implements OnInit {
     db.collection("exam-one")
       .valueChanges()
       .subscribe((value: any[]) => {
-        this.rankOne = value.filter(({ score }) => score < 33);
+        this.rankOne = value.filter(({ score }) => score > 0 && score < 33);
         this.rankTwo = value.filter(({ score }) => score > 33 && score <= 66);
         this.intermediate = value.filter(({ score }) => score > 66);
         this.notExam = value.filter(({ score }) => score < 0);
