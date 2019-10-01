@@ -9,6 +9,7 @@ export class ExamRoundTableComponent implements OnInit {
   rankOne: any = [];
   rankTwo: any = [];
   intermediate: any = [];
+  notExam: any = [];
   constructor(db: AngularFirestore) {
     db.collection("exam-one")
       .valueChanges()
@@ -16,6 +17,7 @@ export class ExamRoundTableComponent implements OnInit {
         this.rankOne = value.filter(({ score }) => score < 33);
         this.rankTwo = value.filter(({ score }) => score > 33 && score <= 66);
         this.intermediate = value.filter(({ score }) => score > 66);
+        this.notExam = value.filter(({ score }) => score < 0);
       });
   }
 
